@@ -814,7 +814,7 @@
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 43a7be93-58bc-4654-9673-a335a2ccd936)
   )
-  (hierarchical_label "USB" (shape bidirectional) (at 30.48 60.96 180) (fields_autoplaced)
+  (hierarchical_label "USB" (shape input) (at 30.48 60.96 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27) bold) (justify right))
     (uuid a2fb2f40-2164-44bd-84fa-bc1ab10c3aa2)
   )
