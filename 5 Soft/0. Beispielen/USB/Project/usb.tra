@@ -1,0 +1,58 @@
+*** Creating Trace Output File 'usb.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"startup_stm32f30x.o"'
+### List of Objects: adding '"system_stm32f30x.o"'
+### List of Objects: adding '"stm32f30x_adc.o"'
+### List of Objects: adding '"stm32f30x_can.o"'
+### List of Objects: adding '"stm32f30x_comp.o"'
+### List of Objects: adding '"stm32f30x_crc.o"'
+### List of Objects: adding '"stm32f30x_dac.o"'
+### List of Objects: adding '"stm32f30x_dbgmcu.o"'
+### List of Objects: adding '"stm32f30x_dma.o"'
+### List of Objects: adding '"stm32f30x_exti.o"'
+### List of Objects: adding '"stm32f30x_flash.o"'
+### List of Objects: adding '"stm32f30x_gpio.o"'
+### List of Objects: adding '"stm32f30x_i2c.o"'
+### List of Objects: adding '"stm32f30x_iwdg.o"'
+### List of Objects: adding '"stm32f30x_misc.o"'
+### List of Objects: adding '"stm32f30x_opamp.o"'
+### List of Objects: adding '"stm32f30x_pwr.o"'
+### List of Objects: adding '"stm32f30x_rcc.o"'
+### List of Objects: adding '"stm32f30x_rtc.o"'
+### List of Objects: adding '"stm32f30x_spi.o"'
+### List of Objects: adding '"stm32f30x_syscfg.o"'
+### List of Objects: adding '"stm32f30x_tim.o"'
+### List of Objects: adding '"stm32f30x_usart.o"'
+### List of Objects: adding '"stm32f30x_wwdg.o"'
+### List of Objects: adding '"hw_config.o"'
+### List of Objects: adding '"main.o"'
+### List of Objects: adding '"stm32_it.o"'
+### List of Objects: adding '"system_stm32f30x.o"'
+### List of Objects: adding '"usb_desc.o"'
+### List of Objects: adding '"usb_endp.o"'
+### List of Objects: adding '"usb_istr.o"'
+### List of Objects: adding '"usb_prop.o"'
+### List of Objects: adding '"usb_pwr.o"'
+### List of Objects: adding '"usb_core.o"'
+### List of Objects: adding '"usb_init.o"'
+### List of Objects: adding '"usb_int.o"'
+### List of Objects: adding '"usb_mem.o"'
+### List of Objects: adding '"usb_regs.o"'
+### List of Objects: adding '"usb_sil.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M4.fp "startup_stm32f30x.o" "system_stm32f30x.o" "stm32f30x_adc.o" "stm32f30x_can.o" "stm32f30x_comp.o" "stm32f30x_crc.o" "stm32f30x_dac.o" "stm32f30x_dbgmcu.o" "stm32f30x_dma.o" "stm32f30x_exti.o" "stm32f30x_flash.o" "stm32f30x_gpio.o" "stm32f30x_i2c.o" "stm32f30x_iwdg.o" "stm32f30x_misc.o" "stm32f30x_opamp.o" "stm32f30x_pwr.o" "stm32f30x_rcc.o" "stm32f30x_rtc.o" "stm32f30x_spi.o" "stm32f30x_syscfg.o" "stm32f30x_tim.o" "stm32f30x_usart.o" "stm32f30x_wwdg.o" "hw_config.o" "main.o" "stm32_it.o" "system_stm32f30x.o" "usb_desc.o" "usb_endp.o" "usb_istr.o" "usb_prop.o" "usb_pwr.o" "usb_core.o" "usb_init.o" "usb_int.o" "usb_mem.o" "usb_regs.o" "usb_sil.o" 
+--strict --scatter "usb.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\usb.map" -o usb.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'usb.axf'
+### ADS-LD Command File: 'usb.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'usb.lnp', Handle=0x00001778
+### Writing '.lnp' file
+### ADS-LD Command file 'usb.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.
