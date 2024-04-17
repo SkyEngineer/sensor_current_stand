@@ -48,7 +48,13 @@
           "min_clearance": 0.5
         }
       },
-      "diff_pair_dimensions": [],
+      "diff_pair_dimensions": [
+        {
+          "gap": 0.0,
+          "via_gap": 0.0,
+          "width": 0.0
+        }
+      ],
       "drc_exclusions": [],
       "meta": {
         "version": 2
@@ -165,8 +171,15 @@
           "td_width_to_size_filter_ratio": 0.9
         }
       ],
-      "track_widths": [],
-      "via_dimensions": [],
+      "track_widths": [
+        0.0
+      ],
+      "via_dimensions": [
+        {
+          "diameter": 0.0,
+          "drill": 0.0
+        }
+      ],
       "zones_allow_external_fillets": false
     },
     "layer_presets": [],
@@ -473,16 +486,16 @@
       ""
     ],
     [
-      "9bf746f9-b9f0-40d2-b386-cb19d5eb9843",
-      "Connectors_current_sensor"
+      "5095138b-119b-4d59-93f1-cf5d9906674b",
+      "Switch_MOSFET24"
     ],
     [
       "6f1b9f7e-5fef-4a41-8a49-4f41855a9d38",
-      "MCU_Sheet"
+      "MCU"
     ],
     [
       "99bea5c6-1936-4c20-a256-95e65884bae3",
-      "secondary_supply_Sheet"
+      "Secondary_supply"
     ],
     [
       "78ae59c2-360a-4533-8fef-da1d4143681f",
@@ -490,7 +503,143 @@
     ],
     [
       "11cc10f4-d204-412e-914d-bfafcc0a241d",
-      "Switch_Sheet"
+      "Switch_G1"
+    ],
+    [
+      "d0232882-0826-4dc7-9caa-a3ebb6224ff1",
+      "Switch_MOSFET"
+    ],
+    [
+      "61126d8b-7d18-4484-8e7d-9fdeacc4f002",
+      "Switch_MOSFET1"
+    ],
+    [
+      "9035ec24-e62c-472a-b9dd-157917f1c3d3",
+      "Switch_MOSFET3"
+    ],
+    [
+      "d02f3a36-1aa8-4ac5-84db-bb6b4f4fda6e",
+      "Switch_MOSFET2"
+    ],
+    [
+      "0875aa5e-1985-4d80-942f-ec7fe5bc577c",
+      "Switch_MOSFET7"
+    ],
+    [
+      "dd7dd45c-cdf5-47f0-a043-ae6493a6adb0",
+      "Switch_MOSFET4"
+    ],
+    [
+      "d573bc25-d399-419d-89f8-ca315dd66450",
+      "Switch_MOSFET5"
+    ],
+    [
+      "3acf63db-5046-4fd2-b7ae-ac990fd0a557",
+      "Switch_MOSFET6"
+    ],
+    [
+      "96babf0d-2bd8-4e73-af45-9a260b58e161",
+      "Switch_G2"
+    ],
+    [
+      "a79d1fe0-0cfc-45b7-8c8f-8bcdcbcf3355",
+      "Switch_MOSFET9"
+    ],
+    [
+      "2d654aee-6aea-4295-9c9d-10dc9bf8d550",
+      "Switch_MOSFET11"
+    ],
+    [
+      "1716f05e-c499-41d4-b615-2b269c00a722",
+      "Switch_MOSFET14"
+    ],
+    [
+      "2438cca4-67dd-485c-8976-2ddbe89e1251",
+      "Switch_MOSFET13"
+    ],
+    [
+      "d20bc047-7bd9-4ca3-93a7-625d440facf7",
+      "Switch_MOSFET12"
+    ],
+    [
+      "aa623f04-13e8-4f02-9375-05aa71c0c172",
+      "Switch_MOSFET10"
+    ],
+    [
+      "d53d31e5-6433-401d-b528-b8e3225e932e",
+      "Switch_MOSFET15"
+    ],
+    [
+      "fc848447-2e31-4f84-82f7-faa6ee892ee0",
+      "Switch_MOSFET8"
+    ],
+    [
+      "161404b0-6bc8-40cc-84a9-da4c85e63f4c",
+      "Switch_G3"
+    ],
+    [
+      "ff39ced2-d379-4bf5-b548-3f3ee7ae0a52",
+      "Switch_G4"
+    ],
+    [
+      "7a5fec14-3d27-495e-a213-204049bdb484",
+      "Switch_MOSFET21"
+    ],
+    [
+      "47db6b87-cd3c-4375-bb65-901ee81ca332",
+      "Switch_MOSFET22"
+    ],
+    [
+      "e273a4ab-e099-416c-b910-42a21389c512",
+      "Switch_MOSFET19"
+    ],
+    [
+      "c73becac-7dca-41ea-a2c8-33758a71faa8",
+      "Switch_MOSFET23"
+    ],
+    [
+      "7b08d67d-dfe7-474d-9af4-a5a547d875a6",
+      "Switch_MOSFET18"
+    ],
+    [
+      "2311ccd6-d801-403f-aad9-358b4b25510d",
+      "Switch_MOSFET17"
+    ],
+    [
+      "3e00c139-5d41-4895-8ae9-46a07c980411",
+      "Switch_MOSFET16"
+    ],
+    [
+      "b2ff4aed-1a59-4018-b9c5-77e67c9c5c94",
+      "Switch_MOSFET20"
+    ],
+    [
+      "6007ebc5-4d51-4af6-8cff-7e884cc5ad93",
+      "Switch_MOSFET26"
+    ],
+    [
+      "63a1d0c0-4070-48fc-948d-c67bb8da087a",
+      "Switch_MOSFET30"
+    ],
+    [
+      "847012c2-192c-4082-9bbb-16e82130aec4",
+      "Switch_MOSFET31"
+    ],
+    [
+      "3a3ad6a5-c042-4810-9e08-c5de6144c2fd",
+      "Switch_MOSFET28"
+    ],
+    [
+      "23cc664f-c220-4aba-b8a1-3358c7a1d7f1",
+      "Switch_MOSFET25"
+    ],
+    [
+      "9158f9c3-3f95-4f7a-88ee-c94ee7ea25a0",
+      "Switch_MOSFET29"
+    ],
+    [
+      "cadd44e4-f3fd-4289-8416-93f805288ce0",
+      "Switch_MOSFET27"
     ]
   ],
   "text_variables": {}
