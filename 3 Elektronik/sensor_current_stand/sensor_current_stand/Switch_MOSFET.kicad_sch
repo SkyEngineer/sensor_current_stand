@@ -472,8 +472,8 @@
     (property "Datasheet" "~" (at 139.7 76.2 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid d5401581-f59e-45b8-9faa-9530a6d092c0))
-    (pin "2" (uuid feb85ae3-34e1-4f7c-a8ee-76cfc8a582dd))
+    (pin "1" (uuid bf905fb2-3971-428f-a3bb-b292ba77b824))
+    (pin "2" (uuid 12d02eee-48b1-4b5a-acf2-e04ec32ab6ca))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf/99bea5c6-1936-4c20-a256-95e65884bae3"
@@ -591,14 +591,14 @@
     (property "Value" "1uF" (at 129.54 63.5 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Capacitor_SMD:C_1206_3216Metric" (at 125.73 69.5452 0)
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 125.73 69.5452 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 129.54 68.58 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid d511dec6-e48f-4202-adc4-fc3f3bca0f66))
-    (pin "2" (uuid d7a9b49d-c990-4743-9234-2b13eef559dd))
+    (pin "1" (uuid dbba4c0e-dac3-41bb-bb75-0b5af0cc2773))
+    (pin "2" (uuid a7aade82-5223-4bcb-9a48-dcae2342dc4c))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf/99bea5c6-1936-4c20-a256-95e65884bae3"
@@ -725,7 +725,7 @@
     (property "Datasheet" "~" (at 148.59 76.2 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid ff75a1c4-dd0f-4300-9bde-7448c2041a47))
+    (pin "1" (uuid f3841325-26a7-4475-be3c-96e18d3d65f3))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf"
@@ -852,7 +852,7 @@
     (property "Datasheet" "~" (at 148.59 68.58 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 8015189e-1e0b-4c87-af9c-fd62390b7199))
+    (pin "1" (uuid 27d7351b-0881-461b-aebc-0947c054af7d))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf"
@@ -979,8 +979,8 @@
     (property "Datasheet" "~" (at 129.54 76.2 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 44723f70-c5d0-403b-abae-afccf37aec6d))
-    (pin "2" (uuid dd1722d9-37c8-4c5b-bc56-99904f7ea6b2))
+    (pin "1" (uuid f7d78458-a949-4f85-adfc-84bd661f75c5))
+    (pin "2" (uuid 70ad27d8-49ff-42ec-9b75-e80e05675e78))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf"
@@ -1107,9 +1107,9 @@
     (property "Datasheet" "http://assets.nexperia.com/documents/data-sheet/BSS84.pdf" (at 120.65 67.31 0)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
-    (pin "1" (uuid a2fc0d96-28b3-4ad1-8cf0-71be6ce945a2))
-    (pin "2" (uuid ddb61266-8421-40d6-9531-3dbfbc29d391))
-    (pin "3" (uuid a64e0a3c-26f2-4778-87b3-4e4766a70fd7))
+    (pin "1" (uuid 08bb579a-8866-4de6-82ca-8c6e930455a4))
+    (pin "2" (uuid 3d38f79e-f202-41ef-afcf-3e7d918069ad))
+    (pin "3" (uuid 267b2ec0-f330-4924-9c05-86b7059c7751))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf/11cc10f4-d204-412e-914d-bfafcc0a241d"

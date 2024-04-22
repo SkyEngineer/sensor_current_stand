@@ -729,8 +729,8 @@
     (property "Datasheet" "https://www.infineon.com/dgdl/Infineon-BAT60ASERIES-DS-v01_01-en.pdf?fileId=db3a304313d846880113def70c9304a9" (at 137.16 83.82 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 84e3c7ba-ade3-48b8-a8fc-0b523f681c0e))
-    (pin "2" (uuid bf91b530-8112-4c39-b564-2fe6370205da))
+    (pin "1" (uuid 217fa745-488f-428e-8dc7-f01f56cb7a05))
+    (pin "2" (uuid 111cf3a5-0db1-4d18-a54d-4ef1e3ce9889))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf"
@@ -752,14 +752,14 @@
     (property "Value" "100nF" (at 77.47 151.13 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_1206_3216Metric" (at 74.6252 153.67 0)
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 74.6252 153.67 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 73.66 149.86 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 41caacac-9ea7-41ab-a1af-eac4a5076f85))
-    (pin "2" (uuid afbbbfbb-6f19-4fa7-b35d-4c81af37ccec))
+    (pin "1" (uuid 2a0b0dce-1b73-4613-b4a3-2409c771d02d))
+    (pin "2" (uuid e2b12387-d400-474f-a935-4b93dbc0517e))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf/99bea5c6-1936-4c20-a256-95e65884bae3"
@@ -778,14 +778,14 @@
     (property "Value" "10nF" (at 105.41 96.52 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_1206_3216Metric" (at 102.5652 99.06 0)
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 102.5652 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 101.6 95.25 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 547e1688-2ae9-45c5-846a-e7a62d8a0fa1))
-    (pin "2" (uuid 8cc6aaf1-5e46-43d8-97ee-5a8acd57e07c))
+    (pin "1" (uuid fa3099ea-5b3d-4e05-9271-aaeb57e73b98))
+    (pin "2" (uuid 1767f1a7-5517-4335-9ffa-334358dfc199))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf/99bea5c6-1936-4c20-a256-95e65884bae3"
@@ -810,7 +810,7 @@
     (property "Datasheet" "~" (at 146.05 107.95 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 801d4643-5d14-4000-93cc-8de21c12dea1))
+    (pin "1" (uuid a7a5f7c3-68e5-45e3-b2f9-4a92a1b56ee9))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf"
@@ -832,14 +832,14 @@
     (property "Value" "1uF" (at 120.65 149.86 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_1206_3216Metric" (at 117.8052 152.4 0)
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 117.8052 152.4 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 116.84 148.59 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 9f4b3320-89af-48ba-99e0-7f0cc399b12b))
-    (pin "2" (uuid d63a65ba-1bef-45e7-93e4-3c2b0d90abb9))
+    (pin "1" (uuid e173a80b-8bd9-4bf9-af10-165b557d1f9c))
+    (pin "2" (uuid 467f8e6d-3e67-4f88-8a4e-80fbbc469c24))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf/99bea5c6-1936-4c20-a256-95e65884bae3"
@@ -864,11 +864,11 @@
     (property "Datasheet" "http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/DATASHEET/CD00003395.pdf" (at 91.44 86.36 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 70c1ae92-4d07-4a2f-8e73-e949f9bd22f3))
-    (pin "2" (uuid 3a823521-732b-45e9-bab5-767bb0a90e79))
-    (pin "3" (uuid 910ab458-0dd8-4d9a-93b6-6f8e2ec43129))
-    (pin "4" (uuid d7a83838-9fcb-451f-b2f8-fe490a479341))
-    (pin "5" (uuid 19b1bef2-644d-4488-a5c9-e47ec3c3c601))
+    (pin "1" (uuid 78b49df3-369c-4e60-a63a-218b7bc69051))
+    (pin "2" (uuid 4dbdd969-1e8f-4473-81b5-72847307aca5))
+    (pin "3" (uuid 914d1e67-af3f-4260-a1d9-ee66321ce92f))
+    (pin "4" (uuid 44f7633d-252c-4f3c-a9be-f70184724777))
+    (pin "5" (uuid 31d85710-917b-4b6c-adba-83bd532430fe))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf/99bea5c6-1936-4c20-a256-95e65884bae3"
@@ -893,8 +893,8 @@
     (property "Datasheet" "~" (at 146.05 116.84 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 475b00f3-2cf7-4db7-b20a-727e37d2ef73))
-    (pin "2" (uuid 132d116f-e5c0-4a35-b7a5-eb1c98194cbc))
+    (pin "1" (uuid 5d408348-cff0-4180-9b76-204cd95822b1))
+    (pin "2" (uuid 3c4a6c11-d8eb-48d3-8b85-038fd586cc55))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf/99bea5c6-1936-4c20-a256-95e65884bae3"
@@ -919,7 +919,7 @@
     (property "Datasheet" "~" (at 63.5 162.56 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 6269526b-4282-4fb0-8ae2-f46c9b85038b))
+    (pin "1" (uuid 6753477e-1a64-4f20-b0e5-c8f4eca41743))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf"
@@ -947,8 +947,8 @@
     (property "Datasheet" "~" (at 146.05 127 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 1ffd8bd3-8e5d-4f63-b1e1-a1dabc980473))
-    (pin "2" (uuid b002a24f-3526-4613-8d18-ddae59f36001))
+    (pin "1" (uuid 0d076390-bd4c-4e8f-a382-fb075fd36c31))
+    (pin "2" (uuid f0866534-b6f0-4da5-8cb5-00e4fc33bd49))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf"
@@ -976,7 +976,7 @@
     (property "Datasheet" "~" (at 60.96 109.22 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 6eafb16a-ff6b-40a2-984f-6aca1020457f))
+    (pin "1" (uuid a5141392-9c14-49be-8a82-1e532bbc2f77))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf"
@@ -998,14 +998,14 @@
     (property "Value" "100nF" (at 82.55 97.79 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_1206_3216Metric" (at 79.7052 100.33 0)
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 79.7052 100.33 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 78.74 96.52 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 0946c5f5-a8b4-4933-a01e-1df35cded371))
-    (pin "2" (uuid 30998476-474b-4c74-9969-0843c2f54574))
+    (pin "1" (uuid 18f330c0-58e7-4067-b8fb-37237852733c))
+    (pin "2" (uuid 893e473c-8e72-4faf-9ab2-b91c9a9bf1f6))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf/99bea5c6-1936-4c20-a256-95e65884bae3"
@@ -1030,8 +1030,8 @@
     (property "Datasheet" "https://www.infineon.com/dgdl/Infineon-BAT60ASERIES-DS-v01_01-en.pdf?fileId=db3a304313d846880113def70c9304a9" (at 139.7 137.16 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 6ddb5673-b922-49ac-8afe-e2ffd0123ffe))
-    (pin "2" (uuid f1414788-6b70-427d-b891-7ed5ff430fb3))
+    (pin "1" (uuid 2cca6f2b-c5c8-4b41-94da-aa91420944f1))
+    (pin "2" (uuid 14209e77-755d-4f6f-9113-b09a12e4f34d))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf"
@@ -1053,14 +1053,14 @@
     (property "Value" "100nF" (at 130.81 96.52 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_1206_3216Metric" (at 127.9652 99.06 0)
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 127.9652 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 127 95.25 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 812c9a46-57eb-4406-9673-806dbff78cd6))
-    (pin "2" (uuid 16f3e4db-d0f8-421d-8d3a-ede50f1da023))
+    (pin "1" (uuid 28baabf0-97e9-4ece-96dc-bc4f007a8332))
+    (pin "2" (uuid 0f941256-a943-41db-9374-9999893f23db))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf/99bea5c6-1936-4c20-a256-95e65884bae3"
@@ -1079,14 +1079,14 @@
     (property "Value" "1uF" (at 67.31 147.32 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_1206_3216Metric" (at 64.4652 149.86 0)
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 64.4652 149.86 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 63.5 146.05 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid e7f6a684-68c1-4014-b5a5-b7e22e4aee58))
-    (pin "2" (uuid 9a0b416e-3ae7-449f-b84c-2d9f3e2bf92e))
+    (pin "1" (uuid a9f756e9-e241-44a0-b380-7b388c617cef))
+    (pin "2" (uuid 7301e96c-62ea-439b-a50a-1f73f356f572))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf/99bea5c6-1936-4c20-a256-95e65884bae3"
@@ -1105,14 +1105,14 @@
     (property "Value" "1uF" (at 118.11 96.52 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_1206_3216Metric" (at 115.2652 99.06 0)
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 115.2652 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 114.3 95.25 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid ca487e51-5a5c-4f80-800e-d149992ae71a))
-    (pin "2" (uuid 08ec50b5-46bd-4894-94a3-8c130daac6f7))
+    (pin "1" (uuid 4f69683d-b4b5-441d-a72f-9baaed36dd36))
+    (pin "2" (uuid af97c81e-8cb5-4ddf-b050-674bd30dc0aa))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf/99bea5c6-1936-4c20-a256-95e65884bae3"
@@ -1131,14 +1131,14 @@
     (property "Value" "1uF" (at 64.77 93.98 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_1206_3216Metric" (at 61.9252 96.52 0)
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 61.9252 96.52 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 60.96 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 86b9b529-15cf-4454-8e49-1ab77542acb9))
-    (pin "2" (uuid 62d1444a-5843-4587-8dfe-fef19edbf237))
+    (pin "1" (uuid 73fc8e84-3cef-4d6d-a998-17feeae64ac7))
+    (pin "2" (uuid 92625811-e158-445b-95f9-197a01c5935c))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf/99bea5c6-1936-4c20-a256-95e65884bae3"
@@ -1157,14 +1157,14 @@
     (property "Value" "10nF" (at 107.95 149.86 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_1206_3216Metric" (at 105.1052 152.4 0)
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 105.1052 152.4 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 104.14 148.59 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 7f1542c5-0dec-4d74-84f5-c760522a93dc))
-    (pin "2" (uuid 7a3fa348-5b50-4f2a-aaac-06db587167c0))
+    (pin "1" (uuid f2eeccdc-32f9-47ca-a4d7-dbae229b77d9))
+    (pin "2" (uuid 47c7290b-0dd3-4bad-9b29-b5b8c2f0195e))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf/99bea5c6-1936-4c20-a256-95e65884bae3"
@@ -1189,7 +1189,7 @@
     (property "Datasheet" "~" (at 143.51 54.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid cbd21b1d-6974-4748-bc8a-d873f0003586))
+    (pin "1" (uuid d5c47760-006b-49b9-9d62-a152dd9b633a))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf"
@@ -1217,8 +1217,8 @@
     (property "Datasheet" "~" (at 143.51 73.66 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid b0aa1e97-efa6-4c59-b8f9-265d5b4aa8a6))
-    (pin "2" (uuid 284b807b-b24c-49a8-82f7-681389030d09))
+    (pin "1" (uuid c7bcc04c-9f4d-48f2-9521-af6f968098cc))
+    (pin "2" (uuid f0416a51-1a3a-4aec-b7ac-9e129735025c))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf"
@@ -1246,11 +1246,11 @@
     (property "Datasheet" "http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/DATASHEET/CD00003395.pdf" (at 93.98 139.7 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 398236e5-0fd6-4eba-ac74-604a669820d7))
-    (pin "2" (uuid fb6dccaf-7e93-4c11-865d-405748778418))
-    (pin "3" (uuid 1e63eb8d-a9a5-49c0-afcd-036742447ead))
-    (pin "4" (uuid e69dd42e-0ee1-4833-8503-01949e306d55))
-    (pin "5" (uuid 256e629d-1c1b-4d74-a6d3-d5a7177a4a37))
+    (pin "1" (uuid 216790e8-898b-43f9-9f0c-06cf6cdd43a7))
+    (pin "2" (uuid fca98f37-3136-4434-8a01-b26ea4af28cf))
+    (pin "3" (uuid c09d8f08-a104-4a62-903f-57eafc46c324))
+    (pin "4" (uuid 2060aa5a-a8f3-43b0-9fac-872e2ebd082a))
+    (pin "5" (uuid 3ce627e3-d269-497b-b104-6727d7b7d6e6))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf/99bea5c6-1936-4c20-a256-95e65884bae3"
@@ -1275,8 +1275,8 @@
     (property "Datasheet" "~" (at 143.51 63.5 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 82a735a5-adfb-4f90-9813-7b4ffced15a6))
-    (pin "2" (uuid 203d2345-082d-48b3-aa6b-6e74f0e2d30c))
+    (pin "1" (uuid cf1c342d-5704-48a2-a682-e46cbe8c5c8c))
+    (pin "2" (uuid 44c76d1e-6eb1-4f98-b47c-ea43a0b88e07))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf/99bea5c6-1936-4c20-a256-95e65884bae3"
@@ -1295,14 +1295,14 @@
     (property "Value" "100nF" (at 133.35 149.86 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_1206_3216Metric" (at 130.5052 152.4 0)
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 130.5052 152.4 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 129.54 148.59 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid e9c44d89-5a98-4606-b8ed-b4193e05e992))
-    (pin "2" (uuid bb2cfcec-86ed-40b4-957f-969814b919bf))
+    (pin "1" (uuid 0a05de89-2a9f-4beb-83ff-3e115cfa0024))
+    (pin "2" (uuid 7e8ceffb-67aa-4fb0-8ea5-70946a44d156))
     (instances
       (project "sensor_current_stand"
         (path "/585f0b4a-d927-4562-b364-ee4ef7ff84cf/99bea5c6-1936-4c20-a256-95e65884bae3"
