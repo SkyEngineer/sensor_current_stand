@@ -23,6 +23,7 @@
 #include "spi.h"
 #include "usb_device.h"
 #include "gpio.h"
+#include "usbd_cdc_if.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -36,6 +37,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -46,17 +48,37 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+// ответ на запрос
+uint8_t ID[1]={0xBB};
+
+// ответ на команду включения, что мы не зависли и отвечаем
+uint8_t ANTWORT[1]={0xEE};
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+void Reset_all_MUX_out(void);
+void Enable_CS(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void Reset_all_MUX_out(void)
+{
+	HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(LD4_GPIO_Port, LD4_Pin, GPIO_PIN_RESET);
+	HAL_Delay(100);
+}
+
+void Enable_CS(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+{
+	Reset_all_MUX_out(); 										// отключаем все адресные выходы
+	HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_SET);	// выставяем нужный пин
+	CDC_Transmit_FS(ANTWORT, 1);								// отвечаем, что выставили пин
+}
 
 /* USER CODE END 0 */
 
@@ -93,6 +115,10 @@ int main(void)
   MX_SPI1_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
+  uint8_t RxData[1] = {0};
+
+  // включение питания мультиплексоров
+  //Enable_Supply_MUX(1);
 
   /* USER CODE END 2 */
 
@@ -103,6 +129,56 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
+	  //обработка запроса опознания
+	  CDC_Receive_FS(RxData, (uint32_t*)1);
+
+	  // тут мы смотрим что пришло (всего 255 команд может прийти)
+	  // 1. в зависимости от того какое число - включаем определенный мультиплексор
+	  // 2. Если числа с 1(0x01) до 32 (0x20) - это номер датчика для включения (свободными остаются еще 223)
+	  // 3. Если число 0xAA - это запрос опознания, отвечаем на это 0xBB
+	  // 4. Если число 0xFE - это команда полной остановки работы мультиплексора (без отключения питания)
+	  // 5. Если число 0xFF - это команда полной остановки работы мультиплексора (с отключением питания)
+
+	  /* необходимо отработать условие, что одновременно может быть включен только один датчик
+	   * то есть каждый раз обнуляем все выходы
+	   */
+
+	  switch (RxData[0]) {
+		case 0x01:	// 1 датчик
+			Enable_CS(LD3_GPIO_Port, LD3_Pin);	// выставяем нужный пин
+			RxData[0] = 0;
+			break;
+		case 0x02:	// 2 датчик
+			Enable_CS(LD4_GPIO_Port, LD4_Pin);
+			RxData[0] = 0;
+			break;
+
+		case 0xAA: //запрос опознания, отвечаем на это 0xBB
+			CDC_Transmit_FS(ID, 1);
+			RxData[0] = 0;
+			break;
+
+		case 0xFE: //команда полной остановки работы мультиплексора (без отключения питания)
+			Reset_all_MUX_out();
+			HAL_GPIO_WritePin(LD5_GPIO_Port, LD5_Pin, GPIO_PIN_SET);
+			CDC_Transmit_FS(ANTWORT, 1);
+			RxData[0] = 0;
+			break;
+		case 0xFF: //команда полной остановки работы мультиплексора (с отключением питания мультиплексоров)
+			Reset_all_MUX_out();
+			HAL_GPIO_WritePin(LD6_GPIO_Port, LD6_Pin, GPIO_PIN_SET);
+			CDC_Transmit_FS(ANTWORT, 1);
+			RxData[0] = 0;
+			break;
+
+		default:
+			//CDC_Transmit_FS(0x00, 1);
+			break;
+	}
+
+	  HAL_Delay(10);
+	    //CDC_Transmit_FS(testDataToSend, 8);
   }
   /* USER CODE END 3 */
 }

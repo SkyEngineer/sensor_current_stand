@@ -1,0 +1,5 @@
+../Core/Src/main.c:69:6:Reset_all_MUX_out	8	static
+../Core/Src/main.c:76:6:Enable_CS	16	static
+../Core/Src/main.c:190:6:SystemClock_Config	88	static,ignoring_inline_asm
+../Core/Src/main.c:89:5:main	16	static
+../Core/Src/main.c:239:6:Error_Handler	0	static,ignoring_inline_asm
