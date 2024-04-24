@@ -1,36 +1,26 @@
-import serial.tools.list_ports
-from time import monotonic
-# скорость
-BAUDRATE = 9600
+import com_ports
 
-# запрос
-SEARCH_MESSAGE = bytes([0xAA])
+# info
+# Питание датчиков тока     GPP-74323           Источник питания
+# Измерение показаний       АКИП-2101/1         Вольтметр
+# АКИП 1162-10-1020	Источник постоянного тока
+# АКИП-1162-10-510	Источник постоянного тока
+
+# питание датчика 16...32 В
+# Диапазон тока измеряемого: 0...500 А
+# Номинальное выходное напряжение: 4 В
+
+# Напряжение питания, В	27
+# Ток потребления,  мА, не более	40
+# Выходное напряжение покоя, В, не более	0,1
+# Выходное напряжение при номинальном входном токе, В	от 3,6 до 4,1
 
 
 
 if __name__ == '__main__':
-    ports = serial.tools.list_ports.comports()
+    coms = com_ports.Com_Ports()
+    coms.search_ports()
 
-    # список всех портов
-    for port in ports:
-        print(port.device)
-
-    # опрашиваем каждый порт, посылаю туда запрос 0xAA
-    for port in ports:
-        ser = serial.Serial(port.device, baudrate=BAUDRATE, timeout=1)
-        ser.write(SEARCH_MESSAGE)
-
-        data = ser.read(1)  # Read 1 bytes from the COM port
-        print(data, port.device)
-        match data:
-            # стенд
-            case bytes([0xBB]):
-                serial_port_stand = port
-
-            # всё остальное
-            case _:
-                print("None")
-        ser.close()
 
 
 
