@@ -1,2 +1,0 @@
-class Voltmeter(object):
-    pass
