@@ -1,11 +1,18 @@
 import serial.tools.list_ports
 
 class Com_Ports(object):
-
+    '''Опрашиваем порты и ищем наши приборы подключенные '''
     def __init__(self):
         self.port_stend = 0
-        self.speed = {"port_stend": 9600}
-        self.search_message_stend = bytes([0xAA])
+        self.speed = {"port_commutator": 9600,
+                      "port_power_supply_measure": 115200,
+                      "power_supply_sensor": 115200}
+
+        # поисковые сообщения
+        self.search_message = {"commutator": bytes([0xAA]),
+                               "": *IDN}
+        self.antwort_message = {"":,}
+
 
         self.port_BP1 = 0
         self.port_BP2 = 0
