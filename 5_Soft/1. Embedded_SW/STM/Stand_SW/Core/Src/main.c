@@ -20,8 +20,8 @@
 #include "main.h"
 #include "usb_device.h"
 #include "gpio.h"
-#include "usbd_cdc_if.h"
 
+#include "usbd_cdc_if.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -71,7 +71,6 @@ uint8_t ANTWORT[1]={0xEE};
 
 // входной буфер
 uint8_t RxData[1] = {0};
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -81,7 +80,6 @@ void Reset_all_addr_MUX(void);
 void Reset_all_addr_MUX_and_U_MUX(void);
 void Init_MUX(void);
 void Enable_Sensor_Current(uint8_t num);
-
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -196,7 +194,6 @@ void Enable_Sensor_Current(uint8_t num)
 		HAL_GPIO_WritePin(MUX_4_S2_GPIO_Port, MUX_4_S2_Pin, c.byte.a2);
 	}
 }
-
 /* USER CODE END 0 */
 
 /**
@@ -242,9 +239,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
+/*
 	  //обработка запроса
-	  CDC_Receive_FS(RxData, (uint32_t*)1);
+	  CDC_Receive_FS(RxData,  (uint32_t)1);
 
 	  // тут мы смотрим что пришло (всего 255 команд может прийти)
 	  // 1. в зависимости от того какое число - включаем определенный мультиплексор
@@ -253,9 +250,9 @@ int main(void)
 	  // 4. Если число 0xFE - это команда полной остановки работы мультиплексора (без отключения питания)
 	  // 5. Если число 0xFF - это команда полной остановки работы мультиплексора (с отключением питания)
 
-	  /* необходимо отработать условие, что одновременно может быть включен только один датчик
-	   * то есть каждый раз обнуляем все выходы
-	   */
+	  // необходимо отработать условие, что одновременно может быть включен только один датчик
+	  // то есть каждый раз обнуляем все выходы
+	  //
 
 	  // если у нас присланный запрос - в диапазоне номеров датчиков
 	  if ((RxData[0] > 0x00) && (RxData[0] <= 0x20))
@@ -289,9 +286,13 @@ int main(void)
 			default:
 				//CDC_Transmit_FS(0x00, 1);
 				break;
+
 		  }
 	  }
-	  HAL_Delay(10);
+	  HAL_Delay(10);*/
+	  HAL_Delay(500);
+	  HAL_GPIO_TogglePin(E_U_MUX_GPIO_Port, E_U_MUX_Pin);
+	  CDC_Receive_FS(RxData,  (uint32_t)1);
   }
   /* USER CODE END 3 */
 }

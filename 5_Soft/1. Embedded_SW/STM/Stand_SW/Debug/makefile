@@ -56,6 +56,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 Stand_SW.list \
 
+OBJCOPY_HEX += \
+Stand_SW.hex \
+
 
 # All Target
 all: main-build
@@ -64,8 +67,8 @@ all: main-build
 main-build: Stand_SW.elf secondary-outputs
 
 # Tool invocations
-Stand_SW.elf Stand_SW.map: $(OBJS) $(USER_OBJS) C:\Users\Mikhail\Documents\GitHub\sensor_current_stand\5\ Soft\1.\ Embedded_SW\STM\Stand_SW\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Stand_SW.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Mikhail\Documents\GitHub\sensor_current_stand\5 Soft\1. Embedded_SW\STM\Stand_SW\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stand_SW.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Stand_SW.elf Stand_SW.map: $(OBJS) $(USER_OBJS) C:\Users\Mikhail\Documents\GitHub\sensor_current_stand\5_Soft\1.\ Embedded_SW\STM\Stand_SW\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Stand_SW.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Mikhail\Documents\GitHub\sensor_current_stand\5_Soft\1. Embedded_SW\STM\Stand_SW\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stand_SW.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -79,12 +82,17 @@ Stand_SW.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+Stand_SW.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "Stand_SW.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) Stand_SW.elf Stand_SW.list Stand_SW.map default.size.stdout
+	-$(RM) Stand_SW.elf Stand_SW.hex Stand_SW.list Stand_SW.map default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'
