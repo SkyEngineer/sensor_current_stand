@@ -21,11 +21,9 @@
 #include "usb_device.h"
 #include "gpio.h"
 
-#include "usbd_cdc_if.h"
-
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "usbd_cdc_if.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,8 +43,15 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+// ответ на запрос
+uint8_t ID[1]={0xBB};
+
+// ответ на команду включения, что мы не зависли и отвечаем
+uint8_t ANTWORT[1]={0xEE};
+
 // входной буфер
 uint8_t RxData[1] = {0};
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -100,9 +105,11 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  HAL_Delay(500);
-	  HAL_GPIO_TogglePin(MUX_U_EN_GPIO_Port, MUX_U_EN_Pin);
+	  HAL_Delay(100);
+	  HAL_GPIO_TogglePin(E_U_MUX_GPIO_Port, E_U_MUX_Pin);
 	  CDC_Receive_FS(RxData,  (uint32_t)1);
+	  CDC_Transmit_FS(ANTWORT, 1);
+
   }
   /* USER CODE END 3 */
 }

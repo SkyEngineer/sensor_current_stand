@@ -71,6 +71,7 @@ uint8_t ANTWORT[1]={0xEE};
 
 // входной буфер
 uint8_t RxData[1] = {0};
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
