@@ -4318,6 +4318,7 @@
 	)
 	(label "SW3_{21}"
 		(at 115.57 82.55 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4350,6 +4351,7 @@
 	)
 	(label "SW2_{12}"
 		(at 115.57 95.25 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4360,6 +4362,7 @@
 	)
 	(label "SW4_{25}"
 		(at 157.48 67.31 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4381,6 +4384,7 @@
 	)
 	(label "SW3_{22}"
 		(at 115.57 85.09 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4391,6 +4395,7 @@
 	)
 	(label "SW2_{11}"
 		(at 157.48 69.85 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4412,6 +4417,7 @@
 	)
 	(label "SW2_{10}"
 		(at 157.48 72.39 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4422,6 +4428,7 @@
 	)
 	(label "SW4_{31}"
 		(at 157.48 54.61 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4432,6 +4439,7 @@
 	)
 	(label "SW3_{23}"
 		(at 157.48 95.25 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4442,6 +4450,7 @@
 	)
 	(label "SW4_{26}"
 		(at 157.48 64.77 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4452,6 +4461,7 @@
 	)
 	(label "SW3_{19}"
 		(at 157.48 120.65 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4462,6 +4472,7 @@
 	)
 	(label "SW2_{13}"
 		(at 157.48 128.27 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4472,6 +4483,7 @@
 	)
 	(label "SW4_{29}"
 		(at 157.48 49.53 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4515,6 +4527,7 @@
 	)
 	(label "SW3_{24}"
 		(at 157.48 97.79 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4525,6 +4538,7 @@
 	)
 	(label "SW4_{27}"
 		(at 157.48 62.23 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4557,6 +4571,7 @@
 	)
 	(label "SW2_{15}"
 		(at 115.57 90.17 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4567,6 +4582,7 @@
 	)
 	(label "SW4_{32}"
 		(at 157.48 57.15 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4577,6 +4593,7 @@
 	)
 	(label "SW3_{17}"
 		(at 157.48 125.73 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4609,6 +4626,7 @@
 	)
 	(label "SW4_{28}"
 		(at 157.48 59.69 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4619,6 +4637,7 @@
 	)
 	(label "SW4_{30}"
 		(at 157.48 52.07 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4640,6 +4659,7 @@
 	)
 	(label "SW3_{20}"
 		(at 157.48 118.11 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4650,6 +4670,7 @@
 	)
 	(label "SW3_{18}"
 		(at 157.48 123.19 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4660,6 +4681,7 @@
 	)
 	(label "SW2_{9}"
 		(at 157.48 74.93 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
