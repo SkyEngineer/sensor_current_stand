@@ -1,7 +1,0 @@
-../Core/Src/main.c:88:6:Init_MUX	8	static
-../Core/Src/main.c:101:6:Reset_all_addr_MUX	8	static
-../Core/Src/main.c:131:6:Reset_all_addr_MUX_and_U_MUX	8	static
-../Core/Src/main.c:137:6:Enable_Sensor_Current	48	static
-../Core/Src/main.c:202:5:main	8	static
-../Core/Src/main.c:308:6:SystemClock_Config	88	static
-../Core/Src/main.c:358:6:Error_Handler	4	static,ignoring_inline_asm
