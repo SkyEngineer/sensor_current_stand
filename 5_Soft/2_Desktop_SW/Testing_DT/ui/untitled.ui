@@ -185,6 +185,36 @@
 датчика</string>
       </property>
      </widget>
+<<<<<<< Updated upstream
+=======
+     <widget class="QLineEdit" name="DT_N_1">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>80</y>
+        <width>61</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>20</y>
+        <width>51</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>НАпря
+датчика</string>
+      </property>
+     </widget>
+>>>>>>> Stashed changes
     </widget>
    </widget>
    <widget class="QTabWidget" name="tabWidget">
