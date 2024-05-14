@@ -9,9 +9,9 @@ class Com_Ports(object):
                       "power_supply_sensor": 115200}
 
         # поисковые сообщения
-        self.search_message = {"commutator": bytes([0xAA]),
-                               "": *IDN}
-        self.antwort_message = {"":,}
+        # self.search_message = {"commutator": bytes([0xAA]),
+        #                        "": *IDN}
+        # self.antwort_message = {"":,}
 
 
         self.port_BP1 = 0
