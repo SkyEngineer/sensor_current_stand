@@ -7,7 +7,7 @@ class Power_Supply_Measure(object):
         '''устаналиваем порт'''
         pass
 
-    def set_mdde(self):
+    def set_mode(self):
         '''устаналиваем режим'''
         pass
 
@@ -15,6 +15,9 @@ class Power_Supply_Measure(object):
         '''получаем данные'''
         pass
 
-    def set_state_output(self):
+    def set_current(self, current):
+        '''включаем или отключаем выход'''
+        pass
+    def set_state_output(self, enable):
         '''включаем или отключаем выход'''
         pass

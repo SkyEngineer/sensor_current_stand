@@ -7,7 +7,11 @@ class Power_Supply_Sensor(object):
         '''устаналиваем порт'''
         pass
 
-    def set_mdde(self):
+    def set_mode(self):
+        '''устаналиваем режим'''
+        pass
+
+    def set_voltage(self, voltage):
         '''устаналиваем режим'''
         pass
 
@@ -15,6 +19,10 @@ class Power_Supply_Sensor(object):
         '''получаем данные'''
         pass
 
-    def set_state_output(self):
+    def get_current(self):
+        '''получаем данные'''
+        pass
+
+    def set_state_output(self, enable):
         '''включаем или отключаем выход'''
         pass
