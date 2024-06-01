@@ -10,7 +10,7 @@ if __name__ == '__main__':
     # запуск приложения оконного
     app = QtWidgets.QApplication(sys.argv)
     window = window_qt.MyWindow()
-    # объект файла дял создания отчёта
+    # объект файла для создания отчёта
     report_excel = doc_make.Doc_Report()
 
     # эксперименты

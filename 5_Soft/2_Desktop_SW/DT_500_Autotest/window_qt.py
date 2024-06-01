@@ -1,5 +1,6 @@
 from PyQt6 import QtCore, QtWidgets, uic
 import testing_thread_qt
+import com_ports
 
 # класс отображения окна
 class MyWindow (QtWidgets.QMainWindow):
@@ -8,25 +9,22 @@ class MyWindow (QtWidgets.QMainWindow):
         Form, Base = uic.loadUiType("ui/DT_500_Autotest.ui")
         self.ui = Form()
         self.ui.setupUi(self)
+
         # заливаем окна со значениями напряжения белым цветом и черным текстом
         self.set_measure_U_style()
         # по умолчанию делаем отчет
         self.ui.get_doc.setChecked(1)
+
+        self.ports = com_ports.Com_Ports()
 
         # кнопки
         self.ui.Connect_Button.clicked.connect(self.btn_connect_click)
         self.ui.Start_Button.clicked.connect(self.btn_start_click)
 
         # поток тестирования
-        self.mythread = testing_thread_qt.MyThread()
-        # self.mythread.started.connect(self.set_console_text)
-        # self.mythread.finished.connect(self.set_console_text)
-        self.mythread.mysignal_status.connect(self.set_console_text, QtCore.Qt.ConnectionType.QueuedConnection)
 
-        self.dict_com_ports = {"stand": None,
-                          "power_sensor": None,
-                          "power_current": None,
-                          "voltmeter": None,}
+
+        self.dict_com_ports = None
 
     # заливаем окна со значениями напряжения белым цветом и черным текстом
     def set_measure_U_style(self):
@@ -63,7 +61,37 @@ class MyWindow (QtWidgets.QMainWindow):
     # Подключение приборов
     def btn_connect_click(self):
         self.set_console_text("Поиск аппаратуры...")
-        # self.dict_com_ports = com_ports.Com_Ports.search_ports()
+        port_stend = self.ports.search_stand()
+        print(port_stend[0], port_stend[1])
+
+        port_instek = self.ports.search_instek(port_stend[1])
+        print(port_instek[0], port_instek[1])
+
+        port_measure_supply = self.ports.search_measure_supply(stand_port=port_stend[1],
+                                                                instek_port= port_instek[1])
+        print(port_measure_supply[0], port_measure_supply[1])
+
+        port_visa_voltmeter = self.ports.search_visa_voltmeter()
+        print(port_visa_voltmeter[0], port_visa_voltmeter[1], port_visa_voltmeter[2])
+
+        self.dict_com_ports = {"port_stend": port_stend,
+                               "port_instek": port_instek,
+                               "port_measure_supply": port_measure_supply,
+                               "port_visa_voltmeter": port_visa_voltmeter}
+
+
+        # установить значения
+        self.set_measure_data("port_stand", port_stend[1])
+        self.set_measure_data("port_supply_sensor", port_instek[1])
+        self.set_measure_data("port_measure_supply", port_measure_supply[1])
+        self.set_measure_data("port_voltmeter", port_visa_voltmeter[2])
+
+        self.set_console_text("Поиск аппаратуры завершен")
+
+        self.mythread = testing_thread_qt.MyThread()
+        # self.mythread.started.connect(self.set_console_text)
+        # self.mythread.finished.connect(self.set_console_text)
+        self.mythread.mysignal_status.connect(self.set_console_text, QtCore.Qt.ConnectionType.QueuedConnection)
 
     # старт тестирования
     def btn_start_click(self):

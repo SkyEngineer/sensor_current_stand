@@ -18623,7 +18623,7 @@
      <string>БП изм. тока</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="port_stand">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -18641,7 +18641,7 @@
      <string>-</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="port_supply_sensor">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -18659,7 +18659,7 @@
      <string>-</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
+   <widget class="QLineEdit" name="port_measure_supply">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -18677,12 +18677,12 @@
      <string>-</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_4">
+   <widget class="QLineEdit" name="port_voltmeter">
     <property name="geometry">
      <rect>
       <x>140</x>
       <y>210</y>
-      <width>61</width>
+      <width>81</width>
       <height>20</height>
      </rect>
     </property>
