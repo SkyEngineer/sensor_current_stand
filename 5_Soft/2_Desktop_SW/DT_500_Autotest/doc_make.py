@@ -1,6 +1,6 @@
 # import docx
 from openpyxl import Workbook, load_workbook
-
+import time
 
 class Doc_Report(object):
     '''отчет и Word, Excel '''
@@ -16,22 +16,24 @@ class Doc_Report(object):
     def make_report_excel(self, measure_data):
         '''создание отчета
         структура list
-        [№ датчика, статус,[Uпит, Iпит,[Uизм(0А), Uизм(100А), Uизм(200А), Uизм(300А), Uизм(400А), Uизм(500А)]]]
+        [№ датчика, статус, Uпит, Iпит,[Uизм(0А), Uизм(100А), Uизм(200А), Uизм(300А), Uизм(400А), Uизм(500А)]]]
         '''
         report = load_workbook(self.template_path)
 
         wsheet_1 = report[report.sheetnames[0]]
         wsheet_2 = report[report.sheetnames[1]]
-        wsheet_3 = report[report.sheetnames[2]]
 
         # заполнение 1 листа
-        for item in measure_data:
-            wsheet_1
-            item[0]
-        # заполнение 2 листа
-        # заполнение 3 листа
+        for num_1, item in enumerate(measure_data):
+            for num_2, data in enumerate(item):
+                if num_2 < 4:
+                    wsheet_1.cell(row=num_1+2, column=num_2+2).value = str(data)
+            for num_3, data in enumerate(item[4]):
+                wsheet_1.cell(row=num_1 + 2, column= 6 + num_3).value = str(data)
 
-        report.close()
+
+        report.save(time.strftime("Протоколы\Протокол от %H_%M %d.%m.%Y.xlsx"))
+        # report.close()
 
         pass
 
@@ -42,7 +44,6 @@ class Doc_Report(object):
     def debug_make_template_report_excel(self):
         wb = Workbook()
 
-        wsheet_1 = wb.create_sheet("Итог", 0)
         wsheet_2 = wb.create_sheet("Данные", 1)
         wsheet_3 = wb.create_sheet("Доп. данные", 2)
 

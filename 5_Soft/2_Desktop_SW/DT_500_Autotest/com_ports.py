@@ -1,5 +1,6 @@
 import serial.tools.list_ports
 import pyvisa
+import time
 # GPP-74323           питание датчиков
 # АКИП-2101/1         Вольтметр
 # АКИП 1162-10-1020	Источник измеряемого тока
@@ -27,8 +28,11 @@ class Com_Ports(object):
         data_in_str = None
 
         while (byte_in != b'\n'):
-            byte_in = ser.read(1)
-            data_in.append(byte_in.decode())
+            if byte_in != None:
+                byte_in = ser.read(1)
+                data_in.append(byte_in.decode())
+            else:
+                break
         data_in_str = ''.join(data_in)
 
         return data_in_str
@@ -40,65 +44,80 @@ class Com_Ports(object):
         for port in ports:
             ser = serial.Serial(port.device,
                                 baudrate=9600,
-                                timeout=100)
+                                timeout=0)
             ser.write(bytes([0xAA]))
-            byte_in = ser.read(1)
+            try:
+                byte_in = ser.read(1)
+            except:
+                pass
+
             if byte_in == b'\xbb':
                 out = ["port_stand", port]
-
                 break
-                #print("stand")
-        ser.close()
+
+            ser.close()
         return out
 
     def search_instek(self, stand_port):
         out = []
         ports = serial.tools.list_ports.comports()
-        ports.remove(stand_port)
+        if stand_port!= []:
+            ports.remove(stand_port[1])
 
         for port in ports:
             ser = serial.Serial(port.device,
                                 baudrate=115200,
-                                timeout=100)
+                                timeout=0)
             ser.write("*IDN?\n".encode())
-            rx_from_port = self.read_data_com(ser)
+            try:
+                rx_from_port = self.read_data_com(ser)
+            except:
+                pass
+
             if "GW INSTEK,GPP-74323" in rx_from_port:
                 out = ["power_supply_sensor", port, port]
-
                 break
-        ser.close()
+
+            ser.close()
         return out
 
-    def search_measure_supply(self, stand_port, instek_port):
+    def search_measure_supply(self, stand_port):
         out = []
         ports = serial.tools.list_ports.comports()
-        ports.remove(stand_port)
+        if stand_port != []:
+            ports.remove(stand_port[1])
         # ports.remove(instek_port)
 
         for port in ports:
             ser = serial.Serial(port.device,
                                 baudrate=115200,
-                                timeout=100)
+                                timeout=0)
             ser.write("*IDN?\n".encode())
-            rx_from_port = self.read_data_com(ser)
+            try:
+                rx_from_port = self.read_data_com(ser)
+            except:
+                pass
 
             if "ITECH,IT-M3910D" in rx_from_port:
                 out = ["power_supply_measure", port, port]
 
                 break
-        ser.close()
+            ser.close()
         return out
 
     def search_visa_voltmeter(self):
         out = []
-        rm = pyvisa.ResourceManager()
-        list_visa = rm.list_resources()
+        try:
+            rm = pyvisa.ResourceManager()
+            list_visa = rm.list_resources()
 
-        for visa_item in list_visa:
-            inst = rm.open_resource(visa_item)
-            ident = inst.query("*IDN?")
-            if "AKIP-2101" in ident:
-                out = ["voltmeter", visa_item, ident.split(",")[1]]
-                break
+            for visa_item in list_visa:
+                inst = rm.open_resource(visa_item)
+                ident = inst.query("*IDN?")
+                if "AKIP-2101" in ident:
+                    out = ["voltmeter", visa_item, ident.split(",")[1]]
+                    break
+        except:
+            pass
 
         return out
