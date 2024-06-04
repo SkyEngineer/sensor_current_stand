@@ -28,11 +28,11 @@ class Com_Ports(object):
         data_in_str = None
 
         while (byte_in != b'\n'):
-            if byte_in != None:
-                byte_in = ser.read(1)
-                data_in.append(byte_in.decode())
-            else:
-                break
+            #if byte_in != None:
+            byte_in = ser.read(1)
+            data_in.append(byte_in.decode())
+            #else:
+             #   break
         data_in_str = ''.join(data_in)
 
         return data_in_str
@@ -44,7 +44,7 @@ class Com_Ports(object):
         for port in ports:
             ser = serial.Serial(port.device,
                                 baudrate=9600,
-                                timeout=0)
+                                timeout=100)
             ser.write(bytes([0xAA]))
             try:
                 byte_in = ser.read(1)
@@ -67,15 +67,15 @@ class Com_Ports(object):
         for port in ports:
             ser = serial.Serial(port.device,
                                 baudrate=115200,
-                                timeout=0)
+                                timeout=100)
             ser.write("*IDN?\n".encode())
-            try:
-                rx_from_port = self.read_data_com(ser)
-            except:
-                pass
+ 
+            rx_from_port = self.read_data_com(ser)
+            print(rx_from_port)
+ 
 
-            if "GW INSTEK,GPP-74323" in rx_from_port:
-                out = ["power_supply_sensor", port, port]
+            if "GW INSTEK" in rx_from_port:
+                out = ["power_supply_sensor", port]
                 break
 
             ser.close()
@@ -91,7 +91,7 @@ class Com_Ports(object):
         for port in ports:
             ser = serial.Serial(port.device,
                                 baudrate=115200,
-                                timeout=0)
+                                timeout=100)
             ser.write("*IDN?\n".encode())
             try:
                 rx_from_port = self.read_data_com(ser)

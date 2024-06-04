@@ -24,53 +24,66 @@ class MyThread(QtCore.QThread):
 
     def quit(self):
         self.running == False
+        
+    def read_data_com(self, ser):
+        data_in = []
+        byte_in = None
+        data_in_str = None
+
+        while (byte_in != b'\n'): #or (byte_in != b''):
+            #if byte_in != None:
+            byte_in = ser.read(1)
+            data_in.append(byte_in.decode())
+            #else:
+             #   break
+        data_in_str = ''.join(data_in)
+
+        return data_in_str
 
     def init_instruments(self):
         # стенд
         self.ser_stand.write(bytes(0xFF))
+        time.sleep(0.1)
 
         # Вольтметр
         # Измерение в В
-        ident = self.visa_voltmeter.query("*IDN?")
-        print(ident)
-        temp_rx = self.visa_voltmeter.query("SENS:VOLT:DC")
-        print(temp_rx)
+        #temp_rx = self.visa_voltmeter.query("SENS:VOLT:DC")
+        #temp_rx = self.visa_voltmeter.query("CONF:VOLT:DC")
+        #print(temp_rx)
 
         # # БП датчиков
         # # отключаем выход
-        # self.ser_supply_sensor.write(":SYST:OUTP:STAT[1] OFF\n".encode())
-        # time.sleep(0.1)
-        # # ставим 27 В
-        # # ser_stand.write(":SYST::SOURce2:VOLTage 27.000\n".encode())
-        # self.ser_supply_sensor.write("VSET1:27.0\n".encode())
-        #
+        self.ser_supply_sensor.write("OUTP1:STAT OFF\n".encode())
+        time.sleep(0.1)
+        # # ставим 16 В
+        self.ser_supply_sensor.write("VSET1:16.000\n".encode())
+        time.sleep(0.1)
+        
+        
         # # БП тока
         # # отключаем выход
-        # self.ser_measure_supply.write("OUTPut:STATe OFF\n".encode())
-        # time.sleep(0.1)
+        self.ser_measure_supply.write("OUTP:STAT OFF\n".encode())
+        time.sleep(0.1)
         # # Ставим ток в 0 А
-        # self.ser_measure_supply.write("CURRent:LEVel:IMMediate:AMPLitude 0 \n".encode())
-
-
-    # def start(self, dict_com_ports):
-    #     self.com_ports = dict_com_ports
-
+        print(self.ser_measure_supply.write("SOUR:CURR:LEV: 0\n".encode()))
+        #print(self.read_data_com(self.ser_measure_supply))
 
     def run(self):
 
         if self.running == True:
-            # self.ser_supply_sensor = serial.Serial(self.com_ports["port_instek"][1].device,
-            #                                        baudrate=115200,
-            #                                        timeout=0)
-            # self.ser_measure_supply = serial.Serial(self.com_ports["port_measure_supply"][1].device,
-            #                                         baudrate=115200,
-            #                                         timeout=0)
-            # self.visa_voltmeter = pyvisa.ResourceManager().open_resource(self.com_ports["port_visa_voltmeter"][1])
-            #
-            # self.ser_stand = serial.Serial(self.com_ports["port_stend"][1].device,
-            #                                baudrate=9600,
-            #                                timeout=0)
-            # self.init_instruments()
+            self.ser_supply_sensor = serial.Serial(self.com_ports["port_instek"][1].device,
+                                                    baudrate=115200,
+                                                    timeout=0)
+            self.ser_measure_supply = serial.Serial(self.com_ports["port_measure_supply"][1].device,
+                                                     baudrate=115200,
+                                                     timeout=0)
+            self.visa_voltmeter = pyvisa.ResourceManager().open_resource(self.com_ports["port_visa_voltmeter"][1])
+            
+            self.ser_stand = serial.Serial(self.com_ports["port_stend"][1].device,
+                                           baudrate=9600,
+                                            timeout=0)
+            self.init_instruments()
+            
             self.mysignal_status.emit("Инициализация")
             time.sleep(1)
 
@@ -85,16 +98,22 @@ class MyThread(QtCore.QThread):
                         break
                     # 1. включаем датчик
                     # 1.1 включаем землю на стенде
-                    # self.com_ports["stand"].write(bytes([num_sensor]))
+                    
+                    self.ser_stand.write(bytes([num_sensor]))
                     measure_data = [num_sensor, None]
-                    time.sleep(1)
+                    time.sleep(0.1)
 
-                    # 1.2 устанавливаем и включаем питание датчика на 16 В
+                    # 1.2 устанавливаем и включаем питание датчика на 16 В (GPP Instek)
                     # ps_sensor.set_voltage(voltage)
-                    # time.sleep(0.1)
+                    self.ser_supply_sensor.write(f"SOUR1:VOLT {u_supply_sensor}\n".encode())
+                    time.sleep(0.1)
                     # ps_sensor.set_state_output(1)
                     measure_data.append(u_supply_sensor)
                     # читаем значение тока датчика
+                    #self.ser_supply_sensor.write("VOUT1?\n".encode())
+                    self.ser_supply_sensor.write("SOUR1:VOLT?\n".encode())
+                    current_data_sensor = self.read_data_com(self.ser_supply_sensor)
+                    print("current_data_sensor ser_supply_sensor " + current_data_sensor)
                     measure_data.append(0.040) #i_supply_sensor
 
                     sensor_measure = []
@@ -102,13 +121,18 @@ class MyThread(QtCore.QThread):
                         if self.running == False:
                             break
                         # 3. Блок фомирования тока в отключенном состоянии
-                        # ps_current.set_current(curent_measure)
-                        time.sleep(0.1)
+                        self.ser_measure_supply.write(f"CURR {current_measure}\n".encode())
+                        time.sleep(1)
+                        self.ser_measure_supply.write(f"CURR?\n".encode())
+                        print(self.read_data_com(self.ser_measure_supply))
+                        
                         # ps_current.set_state_output(1)
-                        time.sleep(0.1)
+                        time.sleep(1)
 
                         # 4. Меряем выдаваемое датчиком напряжение
                         # sensor_measure.append(volt_meter.get_data())
+                        temp_rx = self.visa_voltmeter.query("MEAS:VOLT:DC?")
+                        print("visa_voltmeter.query(MEAS:VOLT:DC?) " + temp_rx + "\n")
                         sensor_measure.append(0.4)
 
                     # формируем массив

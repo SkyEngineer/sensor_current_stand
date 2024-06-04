@@ -1,0 +1,52 @@
+port_stand COM3 - Устройство с последовательным интерфейсом USB (COM3)
+GW INSTEK,GPP-74323,SN:GEV906156,V1.17
+
+power_supply_sensor COM4 - GPP Serial (COM4)
+power_supply_measure COM6 - Устройство с последовательным интерфейсом USB (COM6)
+voltmeter USB0::0xF4EC::0x1201::SDM35HBQ7R1075::INSTR AKIP-2101
+17
+current_data_sensor ser_supply_sensor 16.000
+
+0
+
+visa_voltmeter.query(MEAS:VOLT:DC?) -4.64699400E-04
+
+
+100
+
+visa_voltmeter.query(MEAS:VOLT:DC?) -4.67684701E-04
+
+
+200
+
+visa_voltmeter.query(MEAS:VOLT:DC?) -4.70707318E-04
+
+
+300
+
+visa_voltmeter.query(MEAS:VOLT:DC?) -4.62908220E-04
+
+
+400
+
+visa_voltmeter.query(MEAS:VOLT:DC?) -4.66005469E-04
+
+
+500
+
+visa_voltmeter.query(MEAS:VOLT:DC?) -4.63505280E-04
+
+
+current_data_sensor ser_supply_sensor 27.000
+
+0
+
+visa_voltmeter.query(MEAS:VOLT:DC?) -4.63132117E-04
+
+
+100
+
+
+
+
+
