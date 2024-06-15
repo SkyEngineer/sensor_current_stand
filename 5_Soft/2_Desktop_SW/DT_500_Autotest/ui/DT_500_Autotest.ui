@@ -18717,8 +18717,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>560</x>
-      <y>10</y>
+      <x>740</x>
+      <y>20</y>
       <width>61</width>
       <height>20</height>
      </rect>
@@ -18738,7 +18738,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>540</x>
       <y>30</y>
       <width>61</width>
       <height>20</height>
@@ -18759,8 +18759,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>560</x>
-      <y>50</y>
+      <x>740</x>
+      <y>60</y>
       <width>61</width>
       <height>20</height>
      </rect>
@@ -18777,8 +18777,8 @@
    <widget class="QLabel" name="label_397">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>10</y>
+      <x>650</x>
+      <y>20</y>
       <width>80</width>
       <height>21</height>
      </rect>
@@ -18798,8 +18798,8 @@
    <widget class="QLabel" name="label_401">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>50</y>
+      <x>650</x>
+      <y>60</y>
       <width>80</width>
       <height>21</height>
      </rect>
@@ -18855,7 +18855,7 @@
    <widget class="QLabel" name="label_400">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>540</x>
       <y>10</y>
       <width>51</width>
       <height>21</height>
@@ -18871,6 +18871,46 @@
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_402">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>10</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Количество
+ датчиков</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="num_of_sensor">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>60</y>
+      <width>81</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>1</string>
     </property>
    </widget>
   </widget>

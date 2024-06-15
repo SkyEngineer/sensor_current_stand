@@ -24,7 +24,8 @@ class Doc_Report(object):
         wsheet_2 = report[report.sheetnames[1]]
 
         # заполнение 1 листа
-        for num_1, item in enumerate(measure_data):
+        measure_data_temp = measure_data[:-1]
+        for num_1, item in enumerate(measure_data_temp):
             for num_2, data in enumerate(item):
                 if num_2 < 4:
                     wsheet_1.cell(row=num_1+2, column=num_2+2).value = str(data)
@@ -32,7 +33,7 @@ class Doc_Report(object):
                 wsheet_1.cell(row=num_1 + 2, column= 6 + num_3).value = str(data)
 
 
-        report.save(time.strftime("Протоколы\Протокол от %H_%M %d.%m.%Y.xlsx"))
+        report.save(time.strftime("Протоколы\Протокол от %d.%m.%Y в %H_%M .xlsx"))
         # report.close()
 
         pass
