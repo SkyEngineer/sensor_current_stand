@@ -83,11 +83,11 @@ class MyThread(QtCore.QThread):
 
         # # БП датчиков
         # # отключаем выход
-        self.ser_supply_sensor.write("OUTP1:STAT OFF\n".encode())
-        time.sleep(0.1)
+        #self.ser_supply_sensor.write("OUTP1:STAT OFF\n".encode())
+        #time.sleep(0.1)
         # # ставим 16 В
-        self.ser_supply_sensor.write("SOUR1:VOLT 16.000\n".encode())
-        time.sleep(0.1)
+        #self.ser_supply_sensor.write("SOUR1:VOLT 16.000\n".encode())
+        #time.sleep(0.1)
         
         
         # БП тока
@@ -108,15 +108,15 @@ class MyThread(QtCore.QThread):
         if self.running == True:
             self.ser_supply_sensor = serial.Serial(self.com_ports["port_instek"][1].device,
                                                     baudrate=115200,
-                                                    timeout=0)
+                                                    timeout=100)
             self.ser_measure_supply = serial.Serial(self.com_ports["port_measure_supply"][1].device,
                                                      baudrate=115200,
-                                                     timeout=0)
+                                                     timeout=100)
             self.visa_voltmeter = pyvisa.ResourceManager().open_resource(self.com_ports["port_visa_voltmeter"][1])
             
             self.ser_stand = serial.Serial(self.com_ports["port_stend"][1].device,
                                            baudrate=9600,
-                                            timeout=0)
+                                            timeout=100)
             
             self.init_instruments()
             
@@ -125,43 +125,49 @@ class MyThread(QtCore.QThread):
             time.sleep(1)
 
             self.mysignal_status.emit("Тестирование...")
+
+
             for num_sensor in range(1, self.num_of_sensors+1):
                 if self.running == False:
                     break
+                # 1. включаем датчик
+                # 1.1 включаем землю на стенде
+                self.ser_stand.write(bytes([0xFF]))
+                time.sleep(0.1)
+                self.ser_stand.write(bytes([num_sensor]))
+                time.sleep(0.1)
 
+                self.ser_supply_sensor.write(f"VSET1:0\n".encode())
+                time.sleep(0.1)
+                self.ser_supply_sensor.write("OUTP1:STAT ON\n".encode())
+                time.sleep(0.1)
                 
-                for u_supply_sensor in [16.000, 27.000, 32.000]:
+                for u_supply_sensor in [16, 27, 32]:
                     if self.running == False:
                         break
-                    # 1. включаем датчик
-                    # 1.1 включаем землю на стенде
-                    self.ser_stand.write(bytes([num_sensor]))
+                    self.ser_supply_sensor.write(f"VSET1:0\n".encode())
+                    time.sleep(0.1)
+
                     self.measure_data = [num_sensor, None, u_supply_sensor]
                     time.sleep(0.1)
 
                     # 1.2 устанавливаем и включаем питание датчика (GPP Instek)
-                    # Отключение выхода
-                    self.ser_supply_sensor.write("OUTP1:STAT OFF\n".encode())
                     # установка напряжения
-                    self.ser_supply_sensor.write(f"SOUR1:VOLT {u_supply_sensor}\n".encode())
+                    self.ser_supply_sensor.write(f"VSET1:{u_supply_sensor}\n".encode())
                     time.sleep(0.1)
-                    # включение выхода
-                    self.ser_supply_sensor.write("OUTP1:STAT ON\n".encode())
 
                     # читаем значение тока датчика в покое
-                    self.ser_supply_sensor.write("SOUR1:CURR?\n".encode())
+                    self.ser_supply_sensor.write("IOUT1?\n".encode())
                     current_data_sensor = self.read_data_com(self.ser_supply_sensor)
-                    self.measure_data.append(float(current_data_sensor))
+                    self.measure_data.append(float(current_data_sensor.split("A")[0]))
                     self.debug_print(self.measure_data)
 
                     sensor_measure = []
                     for current_measure in [0, 100, 200, 300, 400, 500]:
-                        if self.running == False:
-                            break
                         # 3. Блок фомирования тока
                         # отключаем выход
                         self.ser_measure_supply.write(f"OUTP 0\n".encode())
-                        time.sleep(1)
+                        time.sleep(0.1)
 
                         # задаем ток
                         self.ser_measure_supply.write(f"CURR {str(current_measure)}\n".encode())
@@ -174,16 +180,19 @@ class MyThread(QtCore.QThread):
                         # 4. Меряем выдаваемое датчиком напряжение
                         # sensor_measure.append(volt_meter.get_data())
                         temp_rx = self.visa_voltmeter.query("MEAS:VOLT:DC?")
-                        #print(temp_rx)
+                        print("***")
+                        print(num_sensor)
+                        print(u_supply_sensor)
+                        print(current_measure)
+                        print(float(temp_rx))
                         sensor_measure.append(round(float(temp_rx), 2))
                     
                     # отключаем блок форимрования тока
                     self.ser_measure_supply.write(f"OUTP 0\n".encode())
                     # отключаем ключи стенда
-                    self.ser_stand.write(bytes([0xFF]))
+                    #self.ser_stand.write(bytes([0xFF]))
                     
                     # формируем массив
-                   
                     self.measure_data.append(sensor_measure)
 
                     # проверяем, что данные находятся в допуске
@@ -193,22 +202,27 @@ class MyThread(QtCore.QThread):
                     self.measure_data_for_doc.append(self.measure_data)
                     self.mysignal_measure.emit(self.measure_data)
 
-            if self.running == True:
+                # окончание тестирования
                 self.mysignal_status.emit("Тестирование завершено")
+                self.ser_stand.write(bytes([0xFF]))
+
                 # отключаем блок форимрования тока
                 self.ser_measure_supply.write(f"OUTP 0\n".encode())
                 # отключаем ключи стенда
-                self.ser_stand.write(bytes([0xFF]))
+
                 # Отключение выхода питания датчиков
+                self.ser_supply_sensor.write(f"VSET1:0\n".encode())
+                # self.ser_supply_sensor.write(f"SOUR1:VOLT 0\n".encode())
+                time.sleep(0.1)
                 self.ser_supply_sensor.write("OUTP1:STAT OFF\n".encode())
-            else:
-                self.mysignal_status.emit("Тестирование прервано")
-                # отключаем блок форимрования тока
-                self.ser_measure_supply.write(f"OUTP 0\n".encode())
-                # отключаем ключи стенда
-                self.ser_stand.write(bytes([0xFF]))
-                # Отключение выхода питания датчиков
-                self.ser_supply_sensor.write("OUTP1:STAT OFF\n".encode())
+                time.sleep(0.1)
+                
+                
+            self.ser_supply_sensor.close()
+            self.ser_stand.close()
+            self.ser_measure_supply.close()
+
+
 
             self.mysignal_status.emit("Запись протокола...")
 

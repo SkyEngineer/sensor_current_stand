@@ -35,7 +35,8 @@
     "Python.test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Mikhail/Documents/GitHub/sensor_current_stand/5_Soft/2_Desktop_SW/DT_500_Autotest v2"
+    "last_opened_file_path": "C:/Users/Mikhail/Documents/GitHub/sensor_current_stand/5_Soft/2_Desktop_SW/DT_500_Autotest v2",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RunManager" selected="Python.main">
@@ -153,6 +154,21 @@
           <url>file://$PROJECT_DIR$/doc_make.py</url>
           <line>20</line>
           <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/com_ports.py</url>
+          <line>67</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/window_qt.py</url>
+          <line>162</line>
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/window_qt.py</url>
+          <line>154</line>
+          <option name="timeStamp" value="94" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
