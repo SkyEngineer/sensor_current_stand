@@ -109,11 +109,11 @@ class MyThread(QtCore.QThread):
 
         if self.running == True:
             #print(self.com_ports["port_instek"])
-            self.ser_supply_sensor = serial.Serial(self.com_ports["port_instek"],
+            self.ser_supply_sensor = serial.Serial(self.com_ports["port_instek"][1].device,
                                                     baudrate=115200,
                                                     timeout=100)
 
-            self.ser_measure_supply = serial.Serial(self.com_ports["port_measure_supply"],
+            self.ser_measure_supply = serial.Serial(self.com_ports["port_measure_supply"][1].device,
                                                      baudrate=115200,
                                                      timeout=100)
             self.visa_voltmeter = pyvisa.ResourceManager().open_resource(self.com_ports["port_visa_voltmeter"][1])
@@ -170,7 +170,7 @@ class MyThread(QtCore.QThread):
                     for current_measure in [0, 100, 200, 300, 400, 500]:
                         # 3. Блок фомирования тока
                         # отключаем выход
-                        self.ser_measure_supply.write(f"OUTPт 0\n".encode())
+                        self.ser_measure_supply.write(f"OUTP 0\n".encode())
                         time.sleep(0.1)
 
                         # задаем ток

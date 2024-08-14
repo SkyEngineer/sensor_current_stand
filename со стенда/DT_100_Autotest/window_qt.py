@@ -8,7 +8,7 @@ class MyWindow (QtWidgets.QMainWindow):
 
     def __init__(self, parent=None):
         QtWidgets.QWidget.__init__(self,parent)
-        Form, Base = uic.loadUiType("ui/DT_500_Autotest.ui")
+        Form, Base = uic.loadUiType("ui/DT_100_Autotest.ui")
         self.ui = Form()
         self.ui.setupUi(self)
         self.measure_data_for_doc = []
@@ -21,8 +21,6 @@ class MyWindow (QtWidgets.QMainWindow):
         # self.ui.get_doc.setChecked(1)
 
         self.ports = com_ports.Com_Ports()
-
-
 
         # кнопки
         self.ui.Connect_Button.clicked.connect(self.btn_connect_click)
@@ -38,14 +36,6 @@ class MyWindow (QtWidgets.QMainWindow):
 
         self.dict_com_ports = None
         self.num_of_sensors = None
-
-        self.add_ports_power_supply()
-
-    def add_ports_power_supply(self):
-        for port in self.ports.all_ports:
-            self.ui.comboBox_power_supply.addItem(port.device)
-            self.ui.comboBox_power_supply_current.addItem(port.device)
-
 
     # заливаем окна со значениями напряжения белым цветом и черным текстом
     def set_measure_U_style(self):
@@ -111,20 +101,18 @@ class MyWindow (QtWidgets.QMainWindow):
         #     print(port_stend[0], port_stend[1])
         # else:
         #     print("port_stend не найден")
-        # //////////////////////////////
-        # try:
-        #     print("port_instek")
-        #     port_instek = self.ports.search_instek()
-        # except:
-        #     print("port_instek  не найден")
-        #
-        #
-        # try:
-        #     print("port_measure_supply")
-        #     port_measure_supply = self.ports.search_measure_supply()
-        # except:
-        #     print("port_measure_supply не найден")
-        # //////////////////////////////
+        try:
+            print("port_instek")
+            port_instek = self.ports.search_instek()
+        except:
+            print("port_instek  не найден")
+
+
+        try:
+            print("port_measure_supply")
+            port_measure_supply = self.ports.search_measure_supply()
+        except:
+            print("port_measure_supply не найден")
 
         try:
             print("port_visa_voltmeter")
@@ -135,23 +123,22 @@ class MyWindow (QtWidgets.QMainWindow):
         # установить значения
 
         self.dict_com_ports = {"port_stend": [],
-                               "port_instek": self.ui.comboBox_power_supply.currentText(),
-                               "port_measure_supply": self.ui.comboBox_power_supply_current.currentText(),
+                               "port_instek": port_instek,
+                               "port_measure_supply": port_measure_supply,
                                "port_visa_voltmeter": port_visa_voltmeter}
-
         #print(self.dict_com_ports["port_instek"])
 
         # self.set_measure_data("port_stand", port_stend[1].device)
 
-        # self.set_measure_data("port_supply_sensor", self.ui.comboBox_power_supply.currentText())
-        # self.set_measure_data("port_measure_supply", self.ui.comboBox_power_supply.currentText())
+        self.set_measure_data("port_supply_sensor", port_instek[1].device)
 
+        self.set_measure_data("port_measure_supply", port_measure_supply[1].device)
         self.set_measure_data("port_voltmeter", port_visa_voltmeter[2])
 
         self.mythread.com_ports = self.dict_com_ports
 
 
-        self.set_console_text("Подключение аппаратуры завершено")
+        self.set_console_text("Поиск аппаратуры завершен")
 
         # self.mythread.start()
 

@@ -21,13 +21,27 @@ class Com_Ports(object):
         self.port_PS_measure = None
         self.port_PS_sensor = None
         self.port_stend = None
-        self.all_ports = serial.tools.list_ports.comports()
 
     def read_data_com(self, ser):
         data_in = []
         byte_in = None
         data_in_str = None
 
+        while (byte_in != b'\n'):
+            #if byte_in != None:
+            byte_in = ser.read(1)
+            data_in.append(byte_in.decode())
+            #else:
+             #   break
+        data_in_str = ''.join(data_in)
+
+        return data_in_str
+        
+    def read_data_com_id(self, ser):
+        data_in = []
+        byte_in = None
+        data_in_str = None
+        ser.write("*IDN?\n".encode())
         while (byte_in != b'\n'):
             #if byte_in != None:
             byte_in = ser.read(1)
@@ -70,14 +84,14 @@ class Com_Ports(object):
             ser = serial.Serial(port.device,
                                 baudrate=115200,
                                 timeout=100)
-            ser.write("*IDN?\n".encode())
- 
-            rx_from_port = self.read_data_com(ser)
+
+            rx_from_port = self.read_data_com_id(ser)
             print(rx_from_port)
  
 
             if "GW INSTEK" in rx_from_port:
                 out = ["power_supply_sensor", port]
+                print(port.device)
                 break
 
             ser.close()
@@ -88,22 +102,22 @@ class Com_Ports(object):
         out = []
         ports = serial.tools.list_ports.comports()
 
-        # ports.remove(instek_port)
+        #ports.remove(instek_port)
 
         for port in ports:
             ser = serial.Serial(port.device,
                                 baudrate=115200,
                                 timeout=100)
-            print(ser.write("*IDN?\n".encode()))
+
             try:
-                rx_from_port = self.read_data_com(ser)
+                rx_from_port = self.read_data_com_id(ser)
                 print(rx_from_port)
             except:
                 pass
 
-            if "ITECH,IT" in rx_from_port:
+            if "ITECH" in rx_from_port:
                 out = ["power_supply_measure", port, port]
-
+                print(port.device)
                 break
             ser.close()
         return out
@@ -117,6 +131,7 @@ class Com_Ports(object):
             for visa_item in list_visa:
                 inst = rm.open_resource(visa_item)
                 ident = inst.query("*IDN?")
+                print(ident)
                 if "AKIP-2101" in ident:
                     out = ["voltmeter", visa_item, ident.split(",")[1]]
                     break

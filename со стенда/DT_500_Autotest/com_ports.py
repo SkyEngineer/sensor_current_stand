@@ -21,7 +21,6 @@ class Com_Ports(object):
         self.port_PS_measure = None
         self.port_PS_sensor = None
         self.port_stend = None
-        self.all_ports = serial.tools.list_ports.comports()
 
     def read_data_com(self, ser):
         data_in = []

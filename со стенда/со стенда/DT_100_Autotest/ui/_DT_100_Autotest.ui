@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>715</width>
-    <height>403</height>
+    <height>399</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Тестирование ДТ-500</string>
+   <string>Тестирование ДТ-100</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="Connect_Button">
@@ -87,10 +87,46 @@
      <string>БП изм. тока</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="port_supply_sensor">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>100</y>
+      <width>81</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>-</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="port_measure_supply">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>150</y>
+      <width>81</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>-</string>
+    </property>
+   </widget>
    <widget class="QLineEdit" name="port_voltmeter">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>140</x>
       <y>200</y>
       <width>81</width>
       <height>20</height>
@@ -323,7 +359,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="U_16_I_100_N_0">
+   <widget class="QLineEdit" name="U_16_I_20_N_0">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -339,7 +375,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="U_16_I_300_N_0">
+   <widget class="QLineEdit" name="U_16_I_60_N_0">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -355,7 +391,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="U_16_I_400_N_0">
+   <widget class="QLineEdit" name="U_16_I_80_N_0">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -405,7 +441,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QLineEdit" name="U_27_I_100_N_0">
+   <widget class="QLineEdit" name="U_27_I_20_N_0">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -470,7 +506,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="U_27_I_300_N_0">
+   <widget class="QLineEdit" name="U_27_I_60_N_0">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -501,7 +537,7 @@
      </font>
     </property>
     <property name="text">
-     <string>100 А</string>
+     <string>20 А</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="U_32_I_0_N_0">
@@ -535,7 +571,7 @@
      </font>
     </property>
     <property name="text">
-     <string>300 А</string>
+     <string>60 А</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_17">
@@ -553,10 +589,10 @@
      </font>
     </property>
     <property name="text">
-     <string>500 А</string>
+     <string>100 А</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="U_32_I_500_N_0">
+   <widget class="QLineEdit" name="U_32_I_100_N_0">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -587,7 +623,7 @@
      </font>
     </property>
     <property name="text">
-     <string>200 А</string>
+     <string>40 А</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_11">
@@ -611,7 +647,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="U_16_I_500_N_0">
+   <widget class="QLineEdit" name="U_16_I_100_N_0">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -642,10 +678,10 @@
      </font>
     </property>
     <property name="text">
-     <string>400 А</string>
+     <string>80 А</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="U_27_I_500_N_0">
+   <widget class="QLineEdit" name="U_27_I_100_N_0">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -661,7 +697,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="U_32_I_100_N_0">
+   <widget class="QLineEdit" name="U_32_I_20_N_0">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -677,7 +713,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="U_27_I_400_N_0">
+   <widget class="QLineEdit" name="U_27_I_80_N_0">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -736,7 +772,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="U_32_I_200_N_0">
+   <widget class="QLineEdit" name="U_32_I_40_N_0">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -752,7 +788,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="U_32_I_300_N_0">
+   <widget class="QLineEdit" name="U_32_I_60_N_0">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -768,7 +804,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="U_16_I_200_N_0">
+   <widget class="QLineEdit" name="U_16_I_40_N_0">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -784,7 +820,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="U_27_I_200_N_0">
+   <widget class="QLineEdit" name="U_27_I_40_N_0">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -813,7 +849,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="QLineEdit" name="U_32_I_400_N_0">
+   <widget class="QLineEdit" name="U_32_I_80_N_0">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -827,26 +863,6 @@
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="comboBox_power_supply">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>100</y>
-      <width>71</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="comboBox_power_supply_current">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>150</y>
-      <width>71</width>
-      <height>22</height>
-     </rect>
     </property>
    </widget>
   </widget>
